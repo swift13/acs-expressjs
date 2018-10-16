@@ -7,9 +7,10 @@
 <body>
 <h1><%= title %></h1>
 <p>Welcome to <%= title %></p>
+<% if (show==="list") {%>
 <ul>
 	<% authors.forEach((author) => { %>
-		<li><%= author.name %> <%= author.last_name %></li>
+		<li><a href="/author/<%=author._id %>" ><%= author.name %> <%= author.last_name %></a></li>
 	<% }) %>
 </ul>
 <div><h2>Create</h2>
@@ -19,5 +20,8 @@
 	<button>Create</button>
 </form>
 </div>
+<% }else{ %>
+ <div><%= author.name %></div>
+<% } %>
 </body>
 </html>

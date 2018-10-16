@@ -19,6 +19,24 @@ router.get("/", async function (req, res, next) {
 		next(e);
 	}
 });
+router.get("/:id", async function (req, res, next) {
+	try {
+		const api = new Client({
+			debug: true,
+			auto_parse: true
+		});
+		await api.connect("ws://acs:8001");
+		const author = await api.call("Author", "get", {_id:req.params.id});
+		res.render("author", {
+			title: "Authors list",
+			show: "one",
+			author
+		});
+		api.close();
+	} catch (e) {
+		next(e);
+	}
+});
 router.post("/", async function (req, res, next) {
 	try {
 		const api = new Client({
