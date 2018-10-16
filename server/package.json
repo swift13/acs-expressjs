@@ -1,0 +1,18 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@etk/api-core-server": "^2.3.0-rc4",
+    "@etk/jsonrpc": "^1.3.3",
+    "json-less": "^0.4.3",
+    "mongodb": "^3.1.8",
+    "sandstorm": "^0.3.10"
+  }
+}

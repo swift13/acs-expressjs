@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= title %></title>
+	<link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<h1><%= title %></h1>
+<p>Welcome to <%= title %></p>
+<ul>
+	<% authors.forEach((author) => { %>
+		<li><%= author.name %> <%= author.last_name %></li>
+	<% }) %>
+</ul>
+<div><h2>Create</h2>
+<form action="" method="post" >
+	<input name="name" type="text"><label for="name">Name</label>
+	<input name="last_name" type="text"><label for="last_name">Last name</label>
+	<button>Create</button>
+</form>
+</div>
+</body>
+</html>

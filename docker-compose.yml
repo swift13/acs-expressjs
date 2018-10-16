@@ -1,0 +1,39 @@
+version: "3.6"
+services:
+  express:
+    image: node
+    environment:
+    - DEVELOPMENT=1
+    - IAPI=1
+    working_dir: /usr/src/app/bin
+    volumes:
+    - ./client/:/usr/src/app
+    ports:
+    - "8000:8000"
+    command: node www
+
+  acs:
+    image: node
+    environment:
+    - DEVELOPMENT=1
+    - IAPI=1
+    working_dir: /usr/src/app
+    volumes:
+    - ./server/:/usr/src/app
+    ports:
+    - "8001:8001"
+    command: node index.js
+
+  mongo:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+    - ./mongo_data/:/data/db
+    ports:
+      - "27017:27017"
+
+
+  redis:
+    image: redis:alpine
